@@ -2,9 +2,11 @@
     margin: 0;
     font-size: 18px;
 }
-.goods-header{
+
+.goods-header {
     width: 90%;
 }
+
 .left-pic {
     clear: left;
     float: left;
@@ -21,7 +23,7 @@
 
 .img-main-rent img {
     width: 100%;
-    height:570px;
+    height: 570px;
     border: 1px #eee solid;
 }
 
@@ -37,9 +39,10 @@
     float: left;
     clear: both;
     width: 100%;
-    height:190px;
+    height: 190px;
     border: 1px #eee solid;
 }
+
 .goods-information {
     width: 33%;
     height: 570px;
@@ -47,56 +50,67 @@
     font-size: 18px;
     /*border: 1px #eee solid;*/
 }
-.separate-left{
-    background-image: -webkit-gradient(linear,left top,right bottom,color-stop(0,#fff),color-stop(1, rgba(122, 231, 184, 0.77)));
+
+.separate-left {
+    background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #fff), color-stop(1, rgba(122, 231, 184, 0.77)));
     height: 40px;
     width: 50%;
     float: left;
     opacity: 0.3;
 }
-.separate-right{
+
+.separate-right {
     float: right;
-    background-image: -webkit-gradient(linear,left top,right bottom,color-stop(0, rgba(122, 231, 184, 0.77)),color-stop(1,#fff));
+    background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, rgba(122, 231, 184, 0.77)), color-stop(1, #fff));
     width: 50%;
     height: 40px;
     opacity: 0.3;
 }
+
 .goods-information p {
     display: inline-block;
     font-size: 26px;
     /*padding: 30px 40px;*/
 }
-.goods-name{
+
+.goods-name {
     padding: 50px 40px 0;
 }
-.goods-information p b{
+
+.goods-information p b {
     font-size: 75px;
     font-style: oblique;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #c0f2e7), color-stop(1, #6cdbc8));
     -webkit-background-clip: text;
     color: transparent;
 }
-.goods-information span{
+
+.goods-information span {
     display: inline-block;
     font-size: 26px;
     padding: 30px 0 0;
 }
-.goods-information div{
+
+.goods-information div {
     font-size: 26px;
     padding-left: 40px;
 }
-.goods-price{
+
+.goods-price {
     padding: 0 40px 15px;
 }
-.goods-address{
+
+.goods-address {
     padding: 0 0 0 40px;
 }
-.goods-information div select{
+
+.goods-information div select {
     width: 30%;
-    height:50px;
-    text-align: center  ;
+    height: 50px;
+    text-align: center;
     background-color: white;
 }
+
 .goods-information button {
     display: inline-block;
     background: #c5f9e7;
@@ -107,8 +121,9 @@
     margin: 50px 40px;
     font-size: 24px;
 }
-.goods-introduce{
-    border:1px #6cdbc8 dashed;
+
+.goods-introduce {
+    border: 1px #6cdbc8 dashed;
     float: left;
     margin-left: 5%;
     margin-right: 5%;
@@ -116,26 +131,31 @@
     height: 50%;
 }
 
-.goods-text-wall h1{
+.goods-text-wall h1 {
     padding: 1% 2%;
 }
-.goods-text-wall h2{
+
+.goods-text-wall h2 {
     padding: 1% 2%;
 }
-.goods-text-wall p{
+
+.goods-text-wall p {
     color: #555;
     font-size: 22px;
     text-align: justify;
     text-indent: 2em;
     padding: 0 2%;
 }
-.goods-pictures-wall{
+
+.goods-pictures-wall {
     width: 85%;
     text-align: center;
 }
-.goods-pictures-wall img{
-    width:40%
+
+.goods-pictures-wall img {
+    width: 40%
 }
-.goods-pictures-wall .img-start-end{
+
+.goods-pictures-wall .img-start-end {
     width: 85%;
 }

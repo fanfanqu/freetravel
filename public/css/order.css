@@ -13,16 +13,15 @@ html, body {
 
 }
 
-.input-lg{
+.input-lg {
     height: 4rem;
-   margin-top: 3rem;
-
+    margin-top: 3rem;
 
 }
+
 .control-label {
     font-size: 1.5rem;
 }
-
 
 .qqz {
     margin-top: 2.5rem;
@@ -39,7 +38,8 @@ html, body {
     margin-left: 40%;
 
 }
-.p-size{
+
+.p-size {
     font-size: 2.0rem;
 }
 

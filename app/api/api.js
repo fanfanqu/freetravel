@@ -1,10 +1,12 @@
 import express from 'express';
-import userApi from './user-api'
-import loginApi from './login-api'
+import userApi from './users-api'
+import loginApi from './sessions-api'
+import personApi from './personal-api'
 
 const router = express.Router();
 
-router.use('/user', userApi);
-router.use('/login', loginApi);
+router.use('/users', userApi);
+router.use('/sessions', loginApi);
+router.use('/personal', loginApi);
 
 export default router;

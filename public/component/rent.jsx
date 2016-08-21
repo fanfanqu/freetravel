@@ -1,12 +1,12 @@
 import React from 'react';
-import picture1 from "../images/rent/digital-single-lens-reflex1.jpg";
-import Image2 from "../images/rent/digital-single-lens-reflex2.jpg";
-import Image3 from "../images/rent/mountain-bike-cycling1.jpg";
-import Image4 from "../images/rent/mountain-bike-cycling2.jpg";
-import Tent1 from "../images/rent/tent1.jpg";
-import Tent2 from "../images/rent/tent2.jpg";
-import Tent3 from "../images/rent/tent3.jpg";
-import Knapsack1 from "../images/rent/knapsack1.jpg";
+import picture1 from "../images/goods/digital-single-lens-reflex-001.jpg";
+import Image2 from "../images/goods/digital-single-lens-reflex-002.jpg";
+import Image3 from "../images/goods/mountain-bike-cycling-001.jpg";
+import Image4 from "../images/goods/mountain-bike-cycling-002.jpg";
+import Tent1 from "../images/goods/tent-004.jpg";
+import Tent2 from "../images/goods/tent-005.jpg";
+import Tent3 from "../images/goods/tent-003.jpg";
+import Knapsack1 from "../images/goods/knapsack-001.jpg";
 
 import "../css/rent.css"
 class SelectArea extends React.Component {
@@ -120,9 +120,9 @@ class Picture extends React.Component {
                         </div>
                     </div>
 
-                {/*</div>*/}
+                    {/*</div>*/}
 
-                {/*<div className="row">*/}
+                    {/*<div className="row">*/}
                     <div className="col-sm-4 col-md-3">
                         <div className="thumbnail">
                             <img src={picture1} className="picture"/>
@@ -164,9 +164,9 @@ class Picture extends React.Component {
                         </div>
                     </div>
 
-                {/*</div>*/}
+                    {/*</div>*/}
 
-                {/*<div className="row">*/}
+                    {/*<div className="row">*/}
                     <div className="col-sm-4 col-md-3">
                         <div className="thumbnail">
                             <img src={picture1} className="picture"/>

@@ -11,4 +11,4 @@ function validatePhone(data) {
 module.exports = {
     validateEmail,
     validatePhone
-}
+};

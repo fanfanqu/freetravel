@@ -1,6 +1,7 @@
 import React from 'react';
 import request from 'superagent';
 import {hashHistory} from 'react-router'
+import _ from 'lodash';
 import '../css/sign-in.css';
 
 export default class SignIn extends React.Component {
@@ -13,7 +14,6 @@ export default class SignIn extends React.Component {
         }
 
     }
-
 
     render() {
         return (<form onSubmit={this._onSubmit.bind(this)}>
@@ -42,12 +42,9 @@ export default class SignIn extends React.Component {
                         </span>
                         <span className="pull-right">
                             <a className="setTextColor">注册</a>
-                            {/*<a className="sign-in" onClick={this.login}>登录</a>*/}
-                            {/*<input type="submit" value='登录' className="btn btn-primary">登录</input>*/}
                             <input type="submit" value="登录" className="btn btn-primary"/>
 
                         </span>
-
                     </p>
                 </div>
             </div>
@@ -68,7 +65,7 @@ export default class SignIn extends React.Component {
 
     _onSubmit(event) {
         event.preventDefault();
-        request.post('/api/login')
+        request.post('/api/sessions')
             .send({
                 name: this.state.name,
                 password: this.state.password
@@ -76,12 +73,14 @@ export default class SignIn extends React.Component {
             .end((err, res) => {
                 if (res.statusCode === 201) {
                     alert('login success');
-                    $("#div1").html('Welcome:' + '<a>' + this.state.name + '</a>');
+                    let string = document.cookie;
+                    const separatorIndex = _.lastIndexOf(document.cookie, '%');
+                    $("#div1").html('Welcome:' + string.substring(6, separatorIndex));
                     hashHistory.push('/index-rent');
                 } else if (res.statusCode === 400 && res.text == 'name and password can not be null') {
                     alert(res.text);
                 }
-                else if (res.statusCode === 400 && res.text === 'name or password is wrong') {
+                else if (res.statusCode === 401 && res.text === 'name or password is wrong') {
                     alert(res.text);
                 }
             })

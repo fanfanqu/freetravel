@@ -7,7 +7,7 @@ import db from '../app/db/db';
 import async from 'async';
 
 
-describe('uer test', () => {
+describe('users-api test', () => {
     beforeEach((done)=> {
         db.connect('test', (err) => {
             if (err) return done.fail(err);
@@ -19,24 +19,16 @@ describe('uer test', () => {
         db.close(finish(done));
     });
 
-    it('init', (done)=> {
-        async.waterfall([
-            (cb) => request(app).post('/register').expect(200, cb),
-            (res, cb) => User.find(cb),
-            (user, cb) => {
-                cb();
-            }
-        ], finish(done));
-    });
-
     it('saved json in mongodb', (done)=> {
-        async.waterfall([
-            (cb) =>request(app).post('/api/user').send({
-                name: 'xy',
-                password: 'zyn199',
-                email: 'zyn123@163.com',
-                phone: '18292080565'
-            }).expect(201, cb)
+        async.series([
+            (cb) =>request(app)
+                .post('/api/users')
+                .send({
+                    name: 'xy',
+                    password: 'zyn199',
+                    email: 'zyn123@163.com',
+                    phone: '+8618292080565'
+                }).expect(201, 'register success', cb)
         ], finish(done));
     });
 
@@ -50,62 +42,64 @@ describe('uer test', () => {
                 phone: '18292080565'
             }).save((err, data) => {
                 if (err) return done.fail(err);
-                request(app).post('/api/user').send({
+                request(app).post('/api/users').send({
                     name: 'xy',
                     password: 'zyn199',
                     email: 'zyn123@163.com',
                     phone: '18292080565'
-                }).expect(409, cb)
+                }).expect(409, 'the name is exist', cb)
             })
         ], finish(done));
     });
 
 
     it('data is uncompleted', (done) => {
-        async.waterfall([
-            (cb) =>request(app).post('/api/user').send({
+        async.series([
+            (cb) =>request(app).post('/api/users').send({
                 name: 'lxy',
                 password: 'zyn129',
                 email: 'yyn123@163.com',
                 phone: ''
-            }).expect(400, cb)
+            }).expect(400, 'Please finish the form', cb)
         ], finish(done));
     });
 
 
     it(' wrong email formation', (done) => {
-        async.waterfall([
-            (cb) =>request(app).post('/api/user').send(
+        async.series([
+            (cb) =>request(app).post('/api/users').send(
                 {name: 'zqs', password: 'zyn129', email: 'yyn123163.com', phone: '18292080565'}
-            ).expect(400, cb)
+            ).expect(400, 'The email is error', cb)
         ], finish(done));
     });
 
-    describe('wrong phone formation', () => {
+    describe('wrong phone information', () => {
 
         it('wrong first number', (done) => {
-            async.waterfall([
-                (cb) =>request(app).post('/api/user').send(
+            async.series([
+                (cb) =>request(app).post('/api/users').send(
                     {name: 'qf', password: 'zyn129', email: 'yyn@123163.com', phone: '28292080565'}
-                ).expect(400, cb)
+                ).expect(400, 'The phone number is error', cb)
             ], finish(done));
         });
 
         it('wrong length', (done) => {
-            async.waterfall([
-                (cb) =>request(app).post('/api/user').send(
+            async.series([
+                (cb) =>request(app).post('/api/users').send(
                     {name: 'xy', password: 'zyn129', email: 'yyn123@163.com', phone: '1829208065'}
-                ).expect(400, cb)
+                ).expect(400, 'The phone number is error', cb)
             ], finish(done));
         });
 
         it('wrong content', (done) => {
-            async.waterfall([
-                (cb) =>request(app).post('/api/user').send(
+            async.series([
+                (cb) =>request(app).post('/api/users').send(
                     {name: 'ltjn', password: 'zyn129', email: 'yyn123@163.com', phone: '182920805*5'}
-                ).expect(400, cb)
+                ).expect(400, 'The phone number is error', cb)
             ], finish(done));
         });
+
+
     });
 
 

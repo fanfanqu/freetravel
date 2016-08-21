@@ -93,10 +93,10 @@ export default class Register extends Component {
     _onSubmit(event) {
         event.preventDefault();
         if (this.state.password !== this.state.confirmPassword) {
-            alert('请重新输入密码!');
+            alert('密码不一致,请重新输入密码!');
         }
         else {
-            request.post('/api/user')
+            request.post('/api/users')
                 .send({
                     name: this.state.name,
                     email: this.state.email,
@@ -104,8 +104,14 @@ export default class Register extends Component {
                     password: this.state.password,
                 })
                 .end((err, res) => {
-                    if (res.statusCode === 400) {
-                        alert("请检查输入的数据是否合法!");
+                    if (res.statusCode === 400 && res.text === 'Please finish the form') {
+                        alert("Please finish the form!");
+                    }
+                    if (res.statusCode === 400 && res.text === 'The email is error') {
+                        alert("The email is error!");
+                    }
+                    if (res.statusCode === 400 && res.text === 'The phone number is error') {
+                        alert("The phone number is error!");
                     }
                     if (res.statusCode === 409) {
                         alert("用户名已存在!");

@@ -18,7 +18,7 @@ class OrderForm extends React.Component {
                 </div>
 
 
-                <div className="input" >
+                <div className="input">
                     <label className="control-label " id="sizing-addon2">提货地址: </label>
                     <input type="text" className="form-control input-lg" placeholder="详情地址:" required/>
                 </div>

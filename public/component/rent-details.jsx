@@ -33,8 +33,11 @@ class GoodsDetails extends React.Component {
                         <div className="separate-right"></div>
                         <p className="goods-price">商品租价：<b>50</b>元/天</p>
                         <p className="goods-address">商品所在地：<span>陕西省 西安市 长安区</span></p>
-                        <Link to='/orderPage'><button type="submit" className="enter-renter">
-                            确认租用</button></Link>
+                        <Link to='/orderPage'>
+                            <button type="submit" className="enter-renter">
+                                确认租用
+                            </button>
+                        </Link>
                     </div>
                 </div>
                 <div className="goods-introduce">
