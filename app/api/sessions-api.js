@@ -28,40 +28,40 @@ router.post('/', (req, res, next) => {
     }
 });
 
-// router.get('/personal', function (req, res) {
-//     const token = req.cookies['token'];
-//     if (validateToken(token)) {
-//         const name = getUsernameFromToken(token);
-//         return res.json({name});
-//     }
-//     res.sendStatus(401);
-// });
-//
-// function generateToken(userData) {
-//     return userData.name + ':' + sha1(userData.password);
-// }
-//
-// function getUsernameFromToken(token) {
-//     const separatorIndex = _.lastIndexOf(token, ':');
-//     return token.substring(0, separatorIndex);
-// }
-//
-// function validateToken(token) {
-//     if (token === null || token.length === 0 || !token.includes(':')) {
-//         return false;
-//     }
-//     const username = getUsernameFromToken(token);
-//     const user = findUser(username);
-//     if (user) {
-//         const {password} = user;
-//         return generateToken(username, password) === token;
-//     }
-//     return false;
-// }
-//
-// function findUser(username) {
-//     return _.find(username, {username});
-// }
+router.get('/personal', function (req, res) {
+    const token = req.cookies['token'];
+    if (validateToken(token)) {
+        const name = getUsernameFromToken(token);
+        return res.json({name});
+    }
+    res.sendStatus(401);
+});
+
+function generateToken(userData) {
+    return userData.name + ':' + sha1(userData.password);
+}
+
+function getUsernameFromToken(token) {
+    const separatorIndex = _.lastIndexOf(token, ':');
+    return token.substring(0, separatorIndex);
+}
+
+function validateToken(token) {
+    if (token === null || token.length === 0 || !token.includes(':')) {
+        return false;
+    }
+    const username = getUsernameFromToken(token);
+    const user = findUser(username);
+    if (user) {
+        const {password} = user;
+        return generateToken(username, password) === token;
+    }
+    return false;
+}
+
+function findUser(username) {
+    return _.find(username, {username});
+}
 
 
 export default router;
